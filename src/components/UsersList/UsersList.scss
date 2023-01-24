@@ -1,0 +1,53 @@
+.UsersList {
+  padding: 50px;
+
+  &__title {
+    font-size: 24px;
+    background-color: rgb(151, 4, 4);
+    border-radius: 10px;
+    line-height: 1.5;
+    color: aliceblue;
+    padding: 10px;
+  }
+  
+  &__list {
+    list-style: none;
+    padding-left: 5px;
+  }
+
+  &__item {
+    font-size: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: #0c0ce2;
+    line-height: 1.5;
+    color: aliceblue;
+    transition-duration: 0.5s;
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+
+  &__button {
+    font-size: 18px;
+    width: 100px;
+    height: 30px;
+    background-color: #0c0ce2;
+    border: 3px solid white;
+    border-radius: 5px;
+    margin-right: 20px;
+    color: aliceblue;
+    cursor: pointer;
+    transition-duration: 0.5s;
+    
+    &:hover {
+      -webkit-box-shadow: 0px -1px 19px 15px rgba(255,255,255,1);
+      -moz-box-shadow: 0px -1px 19px 15px rgba(255,255,255,1);
+      box-shadow: 0px -1px 19px 15px rgba(255,255,255,1);
+    }
+  }
+}
