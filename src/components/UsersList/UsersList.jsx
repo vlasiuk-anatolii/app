@@ -22,6 +22,7 @@ export const UsersList = () => {
   const currentUsersList = useSelector(getUsersSelector);
   const isOpenModal = useSelector(getIsOpenModalSelector);
   const isLoading = useSelector(getStateLoadSelector);
+
   useEffect(() => {
     dispatch(loadUsers());
   }, [dispatch]);
@@ -34,7 +35,6 @@ export const UsersList = () => {
           <ul
             className="UsersList__list"
           >
-             
             {currentUsersList.map(user => (
               <li
                 className="UsersList__item"

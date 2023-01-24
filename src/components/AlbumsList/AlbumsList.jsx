@@ -1,6 +1,5 @@
 import './AlbumsList.scss';
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   getAlbumsSelector,
@@ -11,7 +10,6 @@ import { loadAlbums, setIsOpenModal } from '../../store';
 
 export const AlbumsList = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const currentAlbumsList = useSelector(getAlbumsSelector);
   const currentUsersList = useSelector(getUsersSelector);
   const currentUserId = useSelector(getCurrentUserIdSelector);
@@ -28,10 +26,7 @@ export const AlbumsList = () => {
   
   useEffect(() => {
     dispatch(loadAlbums());
-    if (currentAlbumsUser.length === 0) {
-      navigate('/');
-    }
-  }, [currentAlbumsUser.length, dispatch, navigate]);
+  }, [ dispatch]);
 
   return (
     <>
@@ -44,18 +39,18 @@ export const AlbumsList = () => {
           }}
         >
           <h2 className="AlbumsList__title">{`Albums of ${currentUser.name}`}</h2>
-            <ul
-              className="AlbumsList__list"
+          <ul
+            className="AlbumsList__list"
+          >
+            {currentAlbumsUser.map(album => (
+            <li
+              className="AlbumsList__item"
+              key={album.id}
             >
-              {currentAlbumsUser.map(album => (
-                <li
-                  className="AlbumsList__item"
-                  key={album.id}
-                >
-                  <h2 className="AlbumsList__post-title">{album.title}</h2>
-                </li>
-              ))}
-            </ul>
+              <h2 className="AlbumsList__post-title">{album.title}</h2>
+            </li>
+            ))}
+          </ul>
         </div>
       </div>
     </>

@@ -37,25 +37,25 @@ export const PostsList = () => {
         >
           {'⬅ home'}
         </button>
-        {currentUser 
-          ? <h2 className="PostsList__title">{`Posts of ${currentUser.name}`}</h2>
-          : <h2 
-            className="PostsList__title"
-            onClick={() => {
-              navigate('/');
-            }}
-          >{'Something went wrong! Press to me and go home'}</h2>}
-          <ul
-            className="PostsList__list"
+      {currentUser 
+        ? <h2 className="PostsList__title">{`Posts of ${currentUser.name}`}</h2>
+        : <h2 
+          className="PostsList__title"
+          onClick={() => {
+            navigate('/');
+          }}
           >
+            {'Something went wrong! Press to me and go home'}
+          </h2>}
+          <ul className="PostsList__list">
             {currentPostsUser.map(post => (
-              <li
-                className="PostsList__item"
-                key={post.id}
-              >
-                <h2 className="PostsList__post-title">{post.title}</h2>
-                <p>{post.body}</p>
-              </li>
+            <li
+              className="PostsList__item"
+              key={post.id}
+            >
+              <h2 className="PostsList__post-title">{post.title}</h2>
+              <p>{post.body}</p>
+            </li>
             ))}
           </ul>
       </div>
